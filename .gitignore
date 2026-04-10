@@ -4,9 +4,13 @@ __pycache__/
 *.pyo
 .venv/
 
-# Logs
+# Logs and session data
 *.log
 last-flush.json
+state.json
+.drin/memory-compiler/daily/
+.drin/memory-compiler/knowledge/
+.drin/memory-compiler/reports/
 
 # OS
 .DS_Store

@@ -31,9 +31,13 @@ cp -r "$SCRIPT_DIR/.claude/agents" "$TARGET_DIR/.claude/"
 cp -r "$SCRIPT_DIR/.claude/commands" "$TARGET_DIR/.claude/"
 cp -r "$SCRIPT_DIR/.claude/skills" "$TARGET_DIR/.claude/"
 
-# Copy protocol files
-cp "$SCRIPT_DIR/CLAUDE.md" "$TARGET_DIR/"
-cp "$SCRIPT_DIR/CORE-PROTOCOL.md" "$TARGET_DIR/"
+# Copy protocol files (backup existing ones)
+for f in CLAUDE.md CORE-PROTOCOL.md; do
+    if [ -f "$TARGET_DIR/$f" ]; then
+        mv "$TARGET_DIR/$f" "$TARGET_DIR/${f%.md}_backup_$(date +%Y%m%d_%H%M%S).md"
+    fi
+    cp "$SCRIPT_DIR/$f" "$TARGET_DIR/"
+done
 
 # Memory compiler (optional)
 if [ -d "$SCRIPT_DIR/.drin/memory-compiler" ]; then

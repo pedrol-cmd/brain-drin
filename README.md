@@ -1,8 +1,10 @@
 # Brain Drin
 
+![Brain Drin](./brain_drin_banner.png)
+
 **Portable agent suite for Claude Code.** 51 agents, 52 commands, 100 skills — ready to deploy on any project.
 
-Curated and fused from the best open-source Claude Code resources: [wshobson/claude-code-agents](https://github.com/wshobson/claude-code-agents), [qdhenry/claude-commands](https://github.com/qdhenry/claude-commands), [BMAD-METHOD](https://github.com/bmad-method/BMAD-METHOD), [VoltAgent](https://github.com/VoltAgent/awesome-claude-code), and Anthropic's own documentation.
+Curated from the best open-source Claude Code resources: [wshobson/claude-code-agents](https://github.com/wshobson/claude-code-agents), [qdhenry/claude-commands](https://github.com/qdhenry/claude-commands), [BMAD-METHOD](https://github.com/bmad-method/BMAD-METHOD), [VoltAgent](https://github.com/VoltAgent/awesome-claude-code), and Anthropic's own documentation.
 
 ---
 
@@ -15,14 +17,13 @@ Specialized personas that Claude adopts for focused work.
 | Domain | Agents |
 | :--- | :--- |
 | Strategy & Leadership | `team-lead` `cto-advisor` `strategist` `founder-coach` `product-manager` `project-manager` `scrum-master` |
-| Engineering | `code-architect` `fullstack-dev` `backend-dev` `frontend-dev` `mobile-dev` `database-architect` |
+| Engineering | `code-architect` `fullstack-dev` `backend-dev` `frontend-dev` `mobile-dev` `database-architect` `api-designer` |
 | Languages | `typescript-pro` `python-expert` `rust-engineer` `go-specialist` |
 | Infra & Ops | `devops-engineer` `kubernetes-pro` `terraform-pro` `sre-engineer` `cloud-architect` |
-| Data & AI | `data-scientist` `ml-engineer` `data-engineer` `prompt-engineer` |
+| Data & AI | `data-scientist` `ml-engineer` `data-engineer` `prompt-engineer` `business-analyst` |
 | Marketing & Sales | `growth-hacker` `content-marketer` `sales-automator` `sdr-manager` `sales-ops` `seo-specialist` `social-media-manager` `community-manager` `copywriter` |
-| Quality & Security | `code-reviewer` `security-auditor` `qa-lead` `test-engineer` `performance-analyst` `legal-compliance` |
+| Quality & Security | `code-reviewer` `security-auditor` `qa-lead` `test-engineer` `performance-analyst` `legal-compliance` `debugger` |
 | Research & Content | `researcher` `technical-writer` `writer` `ux-writer` `user-researcher` `ux-designer` `customer-success` |
-| Debug | `debugger` `api-designer` |
 
 ### Commands (52)
 
