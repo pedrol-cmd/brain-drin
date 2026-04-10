@@ -1,28 +1,46 @@
 #!/bin/bash
 
-# Brain Drin — Tactical Installer
-# Purpose: Deploys the Brain Drin suite to any local project.
+# Brain Drin — Installer
+# Deploys agents, commands, and skills to any Claude Code project.
+# Usage: Run from your target project root:
+#   bash /path/to/brain-drin/setup.sh
 
-echo "🧠 Initializing Brain Drin Deployment..."
+set -e
 
-# Check if .claude exists
-if [ -d ".claude" ]; then
-    echo "⚠️  Existing .claude directory found. Backing up..."
-    mv .claude .claude_backup_$(date +%Y%m%d_%H%M%S)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+TARGET_DIR="$(pwd)"
+
+if [ "$SCRIPT_DIR" = "$TARGET_DIR" ]; then
+    echo "Error: Run this from your target project directory, not from brain-drin itself."
+    echo "Usage: cd /your/project && bash $0"
+    exit 1
 fi
 
-# Create directory structure
-mkdir -p .claude/agents .claude/commands .claude/skills
+echo "Brain Drin — deploying to $TARGET_DIR"
 
-# Copying core suite (assuming we are in the Brain Drin root)
-echo "⚡ Fusing Agents, Commands, and Skills..."
-cp -r .claude/agents/* .claude/agents/
-cp -r .claude/commands/* .claude/commands/
-cp -r .claude/skills/* .claude/skills/
+# Backup existing .claude if present
+if [ -d "$TARGET_DIR/.claude" ]; then
+    BACKUP="$TARGET_DIR/.claude_backup_$(date +%Y%m%d_%H%M%S)"
+    echo "Backing up existing .claude/ to $BACKUP"
+    mv "$TARGET_DIR/.claude" "$BACKUP"
+fi
 
-# Copying Protocol and configuration
-cp CLAUDE.md .
-cp CORE-PROTOCOL.md .
+# Deploy
+mkdir -p "$TARGET_DIR/.claude"
+cp -r "$SCRIPT_DIR/.claude/agents" "$TARGET_DIR/.claude/"
+cp -r "$SCRIPT_DIR/.claude/commands" "$TARGET_DIR/.claude/"
+cp -r "$SCRIPT_DIR/.claude/skills" "$TARGET_DIR/.claude/"
 
-echo "✅ Brain Drin Deployed Successfully."
-echo "👉 Run '/onboard' to start the architectural mapping."
+# Copy protocol files
+cp "$SCRIPT_DIR/CLAUDE.md" "$TARGET_DIR/"
+cp "$SCRIPT_DIR/CORE-PROTOCOL.md" "$TARGET_DIR/"
+
+# Memory compiler (optional)
+if [ -d "$SCRIPT_DIR/.drin/memory-compiler" ]; then
+    mkdir -p "$TARGET_DIR/.drin"
+    cp -r "$SCRIPT_DIR/.drin/memory-compiler" "$TARGET_DIR/.drin/"
+    echo "Memory compiler installed. Run 'uv sync' in .drin/memory-compiler/ to activate."
+fi
+
+echo "Done. 51 agents, 52 commands, 100 skills deployed."
+echo "Run '/onboard' in Claude Code to start."

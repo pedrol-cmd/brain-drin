@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Logs
+*.log
+last-flush.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*

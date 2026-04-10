@@ -1,62 +1,85 @@
-# 🧠 Brain Drin
+# Brain Drin
 
-> **The Definitive Agentic Suite for Claude Code.**
-> Fusing 18+ elite repositories into a unified, tactical force of 60+ agents and 100+ production-ready skills.
+**Portable agent suite for Claude Code.** 51 agents, 52 commands, 100 skills — ready to deploy on any project.
 
-![Brain Drin Banner](./brain_dr_banner.png)
-
-## ⚡ Maximum Performance, Minimum Tokens
-Brain Drin is optimized for **Context Efficiency**. It uses a specialized routing system and a "Direct-Action" protocol to deliver SOTA (State of the Art) results without the overhead of the generic AI chat.
+Curated and fused from the best open-source Claude Code resources: [wshobson/claude-code-agents](https://github.com/wshobson/claude-code-agents), [qdhenry/claude-commands](https://github.com/qdhenry/claude-commands), [BMAD-METHOD](https://github.com/bmad-method/BMAD-METHOD), [VoltAgent](https://github.com/VoltAgent/awesome-claude-code), and Anthropic's own documentation.
 
 ---
 
-## 👥 The Elite Squad (60+ Agents)
-Each agent is a specialized persona with isolated protocols and sub-agent orchestration capabilities.
+## What's Inside
 
-| Domain | Key Agents | Sub-agents / Specialization |
-| :--- | :--- | :--- |
-| **Command & Strategy** | `@team-lead`, `@cto-advisor`, `@strategist`, `@founder-coach` | Orchestration, Architecture, Investment, Crisis Management. |
-| **Engineering Core** | `@code-architect`, `@fullstack-dev`, `@backend-dev`, `@frontend-dev` | System Design, Clean Code, API Design, Scalability. |
-| **Language Specialists** | `@typescript-pro`, `@python-expert`, `@rust-engineer`, `@go-specialist` | Advanced Typings, PEP8, Low-level performance, Concurrency. |
-| **Infrastructure & Ops** | `@devops-engineer`, `@kubernetes-pro`, `@terraform-pro`, `@sre-engineer` | CI/CD, K8s, Cloud-native, IaC, Resilience. |
-| **Data & AI** | `@data-scientist`, `@ml-engineer`, `@data-engineer`, `@prompt-engineer` | Analytics, MLOps, Pipelines, LLM Orchestration. |
-| **Marketing & Growth** | `@growth-hacker`, `@content-marketer`, `@sales-automator`, `@seo-specialist` | AARRR Funnels, Content Factory, LinkedIn Outbound, SEO Audit. |
-| **Review & Security** | `@code-reviewer`, `@security-auditor`, `@qa-lead`, `@legal-compliance` | Failures, Vulnerabilities, WCAG, Licensing, GDPR/LGPD. |
+### Agents (51)
 
----
+Specialized personas that Claude adopts for focused work.
 
-## 🛠️ Tactical Library (100+ Skills)
-Reusable, production-hardened workflows for automated execution.
+| Domain | Agents |
+| :--- | :--- |
+| Strategy & Leadership | `team-lead` `cto-advisor` `strategist` `founder-coach` `product-manager` `project-manager` `scrum-master` |
+| Engineering | `code-architect` `fullstack-dev` `backend-dev` `frontend-dev` `mobile-dev` `database-architect` |
+| Languages | `typescript-pro` `python-expert` `rust-engineer` `go-specialist` |
+| Infra & Ops | `devops-engineer` `kubernetes-pro` `terraform-pro` `sre-engineer` `cloud-architect` |
+| Data & AI | `data-scientist` `ml-engineer` `data-engineer` `prompt-engineer` |
+| Marketing & Sales | `growth-hacker` `content-marketer` `sales-automator` `sdr-manager` `sales-ops` `seo-specialist` `social-media-manager` `community-manager` `copywriter` |
+| Quality & Security | `code-reviewer` `security-auditor` `qa-lead` `test-engineer` `performance-analyst` `legal-compliance` |
+| Research & Content | `researcher` `technical-writer` `writer` `ux-writer` `user-researcher` `ux-designer` `customer-success` |
+| Debug | `debugger` `api-designer` |
 
-- **Development**: `drin-api-factory`, `drin-test-generator`, `drin-refactoring-master`.
-- **Operations**: `drin-k8s-diag`, `drin-docker-harden`, `drin-terraform-repair`.
-- **Intelligence**: `drin-competitor-intelligence`, `drin-lead-scoring`, `drin-market-sizing`.
-- **AI/ML**: `drin-vector-db-sync`, `drin-prompt-debugger`, `drin-ml-monitoring`.
-- **Strategy**: `drin-war-room`, `drin-m-and-a-audit`, `drin-investor-check`.
+### Commands (52)
 
----
+Slash commands (`/command`) for specific workflows: `onboard`, `feature-dev`, `review-pr`, `session-handoff`, `debug`, `refactor`, `security-audit`, `db-opt`, `test-gen`, `doc-gen`, and 42 more.
 
-## 🚀 How to Use (Hyper-Efficiency)
-For the best results with the least tokens, follow the **Core Protocol**:
+### Skills (100)
 
-1. **Deploy**: Move `.claude/` to your project root.
-2. **Target**: Use `@agent` or `/command` instead of generic chat.
-3. **Execute**: Be direct and use constraints. (e.g., `@db-opt Optimize query X. Constraint: No joins.`)
-4. **Handoff**: Use `/session-handoff` to persist context between sessions efficiently.
+Reusable multi-step workflows: API scaffolding, competitor intelligence, churn analysis, chaos engineering, lead scoring, terraform repair, prompt debugging, and more. All prefixed `drin-*`.
 
-## 📖 The "Brain" Document
-For deep tactical understanding, read the [CORE-PROTOCOL.md](./CORE-PROTOCOL.md).
+### Memory Compiler
+
+Python-based session persistence (`.drin/memory-compiler/`). Hooks into Claude Code lifecycle to save decisions and context between sessions. Requires `uv`.
 
 ---
 
-### 📐 Fused Repositories
-Brain Drin is the ultimate fusion of the world's best AI engineering resources:
-- **Anthropics** (Claude Code, Plugins, Cookbook)
-- **Wshobson** (Agents & Commands)
-- **qdhenry** (Claude Command Suite)
-- **VoltAgent** (Subagents & Awesome Skills)
-- **BMAD-METHOD** (Workflow Logic)
-- And 13+ other elite technical sources.
+## Install
+
+Clone the repo and run the installer from your target project:
+
+```bash
+git clone https://github.com/pedrol-cmd/brain-drin.git
+cd your-project
+bash /path/to/brain-drin/setup.sh
+```
+
+The script copies agents, commands, skills, and protocol files into your project's `.claude/` directory. If `.claude/` already exists, it backs it up first.
+
+For the memory compiler:
+```bash
+cd .drin/memory-compiler && uv sync
+```
 
 ---
-*Brain Drin — Outperform the individual. Scale the department.*
+
+## Usage
+
+1. **Direct agent**: `@code-reviewer review this PR` — activates the specialist
+2. **Slash command**: `/onboard` — maps architecture of current project
+3. **Orchestrator**: `@team-lead plan the migration` — decomposes complex tasks across agents
+4. **Session persistence**: `/session-handoff` — saves context for next conversation
+
+Read [CORE-PROTOCOL.md](./CORE-PROTOCOL.md) for the full efficiency guide.
+
+---
+
+## Sources
+
+| Repo | What it contributed |
+| :--- | :--- |
+| [wshobson/claude-code-agents](https://github.com/wshobson/claude-code-agents) | Agent personas and command templates |
+| [qdhenry/claude-commands](https://github.com/qdhenry/claude-commands) | Command structure and workflows |
+| [BMAD-METHOD](https://github.com/bmad-method/BMAD-METHOD) | Product planning skills and methodology |
+| [VoltAgent/awesome-claude-code](https://github.com/VoltAgent/awesome-claude-code) | Skill patterns and agent orchestration |
+| [Anthropic Docs](https://docs.anthropic.com/en/docs/claude-code) | Claude Code best practices |
+
+---
+
+## License
+
+[MIT](./LICENSE)

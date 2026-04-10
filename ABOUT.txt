@@ -1,1 +1,0 @@
-Brain Drin (60+ Agents, 100+ Skills) — The ultimate tactical suite for Claude Code. Fusing best practices from Anthropics, wshobson, qdhenry, and BMAD into a high-performance force. Optimizing every token for SOTA results in Engineering, Infrastructure, and Business Strategy. Outperform the solo engineer. Scale with elite subagents. Portable. High-fidelity. Resilient.

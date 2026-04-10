@@ -1,43 +1,42 @@
----
-name: drin-core-protocol
-description: The tactical "Brain" of Brain Drin. Master guide for hyper-efficient AI orchestration.
----
+# Core Protocol
 
-# 🧠 CORE-PROTOCOL: Hiper-Eficiência Brain Drin
+How to get the best results from Brain Drin with minimal token usage.
 
-Este é o protocolo mestre para obter os melhores resultados possíveis (SOTA) com o menor consumo de tokens e contexto.
+## 1. Always target a specialist
 
-## 1. Regra de Ouro: Invocação Cirúrgica
-**Não use o Claude "genérico".** Sempre anuncie ou direcione para um especialista.
+Don't use Claude generically. Direct every request to an agent or command.
 
-- **Diferença de Eficiência**:
-  - *Ruim*: "Analise este código para mim." (Gasta contexto tentando entender sua intenção).
-  - *Elite*: `@code-reviewer /review-pr` (Aciona protocolos específicos e ignora ruído).
+- **Bad**: "Analyze this code for me."
+- **Good**: `@code-reviewer /review-pr` — activates specific protocols, skips noise.
 
-## 2. A Hierarquia de "Luz" (Economia de Tokens)
-Para gastar o mínimo, siga esta ordem de comando:
+## 2. Token efficiency hierarchy
 
-1. **Comando Específico (`/`)**: Use quando a tarefa é mapeada (ex: `/db-opt`). É o mais eficiente pois já carrega a skill exata.
-2. **Agente Especialista (`@`)**: Use para tarefas criativas ou de nicho (ex: `@copywriter`).
-3. **Orquestrador Master (`/f` ou `@team-lead`)**: Use **apenas** para problemas complexos que exigem múltiplos passos ou sub-agentes. *Gasta mais tokens, mas evita erros de contexto em tarefas grandes.*
+From cheapest to most expensive:
 
-## 3. Protocolo de Input "Zero-Waste"
-Para inputs de alta densidade:
-- **Contexto Blindado**: Forneça o erro ou a tarefa e o arquivo alvo. Nada mais.
-- **Constraints over Instructions**: Em vez de dizer "Seja cuidadoso", diga "Constraint: No external libraries". Constraints são interpretadas com mais peso e menos tokens.
-- **Exemplo de Solicitação Elite**:
-  > `@backend-dev Crie endpoint /health seguindo drin-api-endpoint-scaffold. Target: server.ts. Constraint: Typescript strict.`
+1. **Slash command** (`/db-opt`, `/test-gen`) — pre-built workflow, lowest cost
+2. **Agent** (`@backend-dev`, `@copywriter`) — specialist persona, moderate cost
+3. **Orchestrator** (`@team-lead`) — decomposes and delegates, highest cost but handles complexity
 
-## 4. Gerenciamento de Memória Contextual
-O Brain Drin usa o sistema de "Session Handoff":
-- Antes de terminar, use `/session-handoff`. 
-- Isso comprime o que foi feito num "Context Pack", que você cola no início da próxima conversa. 
-- **Isso evita que o Claude perca o fio da meada em projetos longos.**
+Use the cheapest option that fits the task.
 
-## 5. Seleção de Modelo (Opus vs Sonnet)
-- **Use Sonnet (Default)**: Para 90% das tarefas (Coding, Writing, DevOps).
-- **Use Opus**: Apenas para **Arquitetura Crítica**, **Revisão de Segurança Adversária** ou **Estratégia de Negócios Complexa**.
-- *Dica*: Se o Sonnet falhar 2 vezes na mesma lógica, mude para `@team-lead` (Opus) para o "Deep Thinking".
+## 3. Input format
 
----
-*Brain Drin: Inteligência de SOTA, Economia de Operação.*
+Write dense, constrained inputs:
+
+```
+@backend-dev Create endpoint /health in server.ts.
+Constraint: TypeScript strict, no external libraries.
+```
+
+**Constraints > instructions.** "Constraint: No joins" is interpreted with more weight and fewer tokens than "Please be careful not to use any join operations."
+
+## 4. Session persistence
+
+Before ending a long session, run `/session-handoff`. It compresses decisions, progress, and next steps into a context pack you paste into the next conversation. Prevents context loss across sessions.
+
+## 5. Model selection
+
+- **Sonnet** (default): 90% of tasks — coding, writing, ops
+- **Opus**: Architecture decisions, adversarial security review, complex strategy
+
+If Sonnet fails twice on the same logic, escalate to `@team-lead` (Opus).
