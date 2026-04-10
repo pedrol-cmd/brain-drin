@@ -37,7 +37,15 @@ Reusable multi-step workflows: API scaffolding, competitor intelligence, churn a
 
 Python-based session persistence (`.drin/memory-compiler/`). Hooks into Claude Code lifecycle to save decisions and context between sessions. Requires `uv`.
 
+> **Note:** All agents, commands, and skills live inside `.claude/` (a dot-folder). GitHub hides dot-folders in its web UI — you need to clone the repo to see the full content.
+
 ---
+
+## Prerequisites
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI installed
+- [Git](https://git-scm.com/)
+- [uv](https://docs.astral.sh/uv/) (only for the memory compiler)
 
 ## Install
 
@@ -51,7 +59,7 @@ bash /path/to/brain-drin/setup.sh
 
 The script copies agents, commands, skills, and protocol files into your project's `.claude/` directory. If `.claude/` already exists, it backs it up first.
 
-For the memory compiler:
+For the memory compiler (optional):
 ```bash
 cd .drin/memory-compiler && uv sync
 ```
